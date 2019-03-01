@@ -5,6 +5,7 @@ import Related from '../../pages/components/related';
 import ModalContainer from '../../widgets/containers/modal.js';
 import Modal from '../../widgets/components/modal.js';
 import Error from '../../errores/containers/error';
+import VideoPlayer from '../../player/containers/video-player-container';
 class Home extends Component {
     state={
         modalVisible: false,
@@ -24,6 +25,7 @@ class Home extends Component {
             <Error>
                 <HomeLayout>
                     <Related/>
+                    <VideoPlayer/>
                     <Categories 
                         categories = {this.props.data.categories}
                         abrirModal = {this.abrirModal}/>
