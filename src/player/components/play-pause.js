@@ -8,11 +8,11 @@ export default function PlayPause(props){
             {
                 props.pause ?
                     <button onClick={props.cambiarPausaPlay}>
-                        <Pause size={25} color="white"/>
+                        <Play size={25} color="white"/>
                     </button>
                 :
                     <button onClick={props.cambiarPausaPlay}>
-                        <Play size={25} color="white"/>
+                        <Pause size={25} color="white"/>
                     </button>
             }
             
