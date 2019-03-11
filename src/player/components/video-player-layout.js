@@ -8,18 +8,22 @@ import VideoControls from './video-controls';
 import ProgressBar from './progress-bar';
 import Spinner from './spinner';
 import Volume from './volume'
+import FullScreen from './full-screen'
 
 
 const VideoPlayerLayout = (props)=>{
     
     return(
-        <div className="VideoPlayerLayout">
+        <div  
+            ref = { props.setRef }
+            className="VideoPlayerLayout">
             <Title title={props.title} />
             <VideoControls>
                 <PlayPause pause={props.pause} cambiarPausaPlay={props.cambiarPausaPlay} />
                 <Timer currentTime={props.currentTime} duration={props.duration}/>
                 <ProgressBar duration={props.duration} actual={props.currentTime} cambiosBar={props.cambiosBar}/>
                 <Volume cambioVolumen={props.cambioVolumen}/>
+                <FullScreen ButtonFullScreen={props.ButtonFullScreen}/>
             </VideoControls>
             <Spinner active = {props.loading}/>
             <Video 
@@ -28,7 +32,8 @@ const VideoPlayerLayout = (props)=>{
                 autoPlay = {props.autoPlay} 
                 pause = {props.pause}
                 moviendo = {props.moviendo}
-                movido = {props.movido}/>
+                movido = {props.movido}
+                src = { props.src }/>
         </div>
     )
 }

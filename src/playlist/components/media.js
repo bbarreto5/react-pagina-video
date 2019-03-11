@@ -37,6 +37,9 @@ class Media extends PureComponent{
             cover: './imagenes/imagen2.jpg',
         });
     }
+    datosModal = () =>{
+        this.props.abrirModal(this.props)
+    }
     render(){
         //instancea los estados de las propiedades
         const {title, author, cover ,src} = this.state;
@@ -44,7 +47,7 @@ class Media extends PureComponent{
         //const {title, author, image} = this.props;
         return (
             <div className="Media">
-                <div className="Media-cover" onClick={this.props.abrirModal}>
+                <div className="Media-cover" onClick={this.datosModal}>
                     <img className="Media-image"
                         src ={cover} 
                         width = {260}

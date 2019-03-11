@@ -21,13 +21,13 @@ export default class Video extends Component{
         return (
             <div className="Video">
                 <video
-                    autoPlay={this.props.autoPlay}
-                    ref={this.setRef}
-                    onLoadedMetadata={this.props.LoadedMetadata}
-                    onTimeUpdate={this.props.TimeUpdate}
+                    autoPlay = { this.props.autoPlay }
+                    ref = { this.setRef }
+                    onLoadedMetadata = { this.props.LoadedMetadata }
+                    onTimeUpdate = { this.props.TimeUpdate }
                     onSeeking = { this.props.moviendo }
                     onSeeked = { this.props.movido }
-                    src="http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+                    src={ this.props.src }
                 />
             </div>
             

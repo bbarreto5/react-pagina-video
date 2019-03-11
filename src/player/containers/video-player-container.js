@@ -4,7 +4,6 @@ import VideoPlayerLayout from "../components/video-player-layout";
 class VideoPlayer extends Component{
     state = {
         autoPlay:false,
-        title:"conejos",
         pause:true,
         duration:0,
         currentTime:0,
@@ -47,11 +46,24 @@ class VideoPlayer extends Component{
     cambioVolumen = event =>{
         this.video.volume = event.target.value;
     }
+    ButtonFullScreen = event =>{
+        if( document.webkitIsFullScreen ){
+            document.webkitExitFullscreen()
+        }else{
+            this.reproductor.webkitRequestFullscreen()
+        }
 
-    render(){
+    }
+    setRef = Element =>{
+        this.reproductor = Element;
+    }
+    render(){    
         return(
             <VideoPlayerLayout 
+                setRef = { this.setRef }
                 {...this.state}
+                title = { this.props.title }
+                src = { this.props.src }
                 LoadedMetadata = { this.LoadedMetadata }
                 cambiarPausaPlay = { this.cambiarPausaPlay }
                 TimeUpdate = { this.TimeUpdate }
@@ -59,7 +71,9 @@ class VideoPlayer extends Component{
                 movido = { this.movido }
                 moviendo = { this.moviendo }
                 cambioVolumen = { this.cambioVolumen }
+                ButtonFullScreen = { this.ButtonFullScreen }
                 />
+                
         )
     }
 }

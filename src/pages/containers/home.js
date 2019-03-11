@@ -10,9 +10,10 @@ class Home extends Component {
     state={
         modalVisible: false,
     }
-    abrirModal = (event) => {
+    abrirModal = (media) => {
         this.setState({
-            modalVisible: true
+            modalVisible: true,
+            media
         });
     }
     cerrarModal = (event)=>{
@@ -25,7 +26,6 @@ class Home extends Component {
             <Error>
                 <HomeLayout>
                     <Related/>
-                    <VideoPlayer/>
                     <Categories 
                         categories = {this.props.data.categories}
                         abrirModal = {this.abrirModal}/>
@@ -33,7 +33,9 @@ class Home extends Component {
                         this.state.modalVisible &&
                         <ModalContainer> 
                             <Modal cerrar={this.cerrarModal}>
-                                <h1>hola viejo</h1>
+                                <VideoPlayer
+                                    src = { this.state.media.src } 
+                                    title = { this.state.media.title }/>
                             </Modal>
                         </ModalContainer>
                         
